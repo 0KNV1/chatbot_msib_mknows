@@ -1,0 +1,219 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "hallo",
+                "hai",
+                "halo",
+                "hello",
+                "guys",
+                "ges",
+                "hei",
+                "hi",
+                "hy",
+                "pagi",
+                "good morning",
+                "siang",
+                "good afternoon",
+                "sore",
+                "good evening",
+                "malam",
+                "bro",
+                "sis",
+                "kak",
+                "dek",
+                "gan",
+                "mbak",
+                "mas",
+                "abang",
+                "eneng",
+                "punten",
+                "excuse me",
+                "mau tanya",
+                "kawan"
+            ],
+            "responses": [
+                "Halo  di sini. Mau tau informasi tentang apa nih?",
+                "Halo! Say, salam kenal ya! Mau tau peminjaman dari Perusahaan M knows-consulting , kan?",
+                "Helo! In. Lagi kepo tentang produk peminjaman ya?",
+                "Ada yang bisa kami bantu?",
+                "Salam hangat sobat, Kami decorbot siap membantu anda!, Mau tau Produk peminjaman dari Perusahaan M knows-consulting  kan?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "dah",
+                "dadah",
+                "bye",
+                "byee",
+                "goodbye",
+                "selamat tinggal",
+                "sampai jumpa",
+                "Bai",
+                "see you"
+            ],
+            "responses": [
+                "Bye!",
+                "Dadahh!",
+                "Good bye!",
+                "Dahh, semoga harimu menyenangkan yaa!",
+                "Sampai jumpa lagi!",
+                "See u! Senang bisa membantu"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "terima kasih",
+                "makasih",
+                "thanks",
+                "thank you",
+                "thankyou",
+                "thx",
+                "thks",
+                "thx u",
+                "thks u",
+                "thank u",
+                "thanku",
+                "makasi"
+            ],
+            "responses": [
+                "Sama-sama",
+                "Senang bisa membantu",
+                "Senang bisa membantu anda",
+                "Senang bisa membantu kamu",
+                "Senang bisa membantu teman-teman",
+                "Senang bisa membantu sis"
+            ]
+        },
+        {
+            "tag": "cara aktivasi kartu kredit BRI",
+            "patterns": [
+                "Bagaimana cara aktivasi kartu kredit?"
+            ],
+            "responses": [
+               "Melalui SMS Untuk SMS Aktivasi dilakukan dengan cara SMS ke 99333 (Telkomsel dan Indosat) atau 9333 (operator selain Telkomsel, Indosat, XL/AXIS) Tarif Rp 550 Format : BRI<spasi>AKT<spasi>NamaPadaKartu#6DigitTerakhirNomorKKBRI#8DigitTanggalLahir(ddmmyyyy) Contoh : BRI AKT Alfian Martiansyah#123456#23031980",
+
+
+                "Melalui Contact Center Nasabah dapat melakukan aktivasi kartu kredit baru  melalui Contact Center 14017/1500017 dan harus menghubungi dari nomor telephone (ponsel atau nomor kantor/rumah) yg terdaftar di sistem."
+            ]
+        },
+        {
+            "tag": "cara pengajuan kartu kredit BRI",
+            "patterns": [
+                "Bagaimana syarat pengajuan kartu kredit?"
+            ],
+            "responses": [  
+                "WNI berusia 25-45 tahun dengan minimal penghasilan Rp. 3.000.000,- dan mengisi formulir pengajuan aplikasi kartu kredit yang dapat diperoleh di Unit Kerja BRI terdekat dan mengunjungi website www.kartukredit.bri.co.id atau menghubungi Contact Center BRI di 14017/1500017"
+            ]
+        },
+        {
+            "tag": "status keluhan saya",
+            "patterns": [
+                "kak mau cek status keluhan saya dong",
+                "cara cek status keluhan"
+            ],
+            "responses": [
+                "Untuk cek status keluhan bisa <a target=\"_blank\" href=\"LINK\"> klik disini</a>"
+            ]
+        },
+        {
+            "tag": "transaksi gagal BRI",
+            "patterns": [
+                "Kenapa transaksi saya gagal?"
+            ],
+            "responses": [
+               "Untuk mengetahui alasan transaksi gagal, Nasabah dapat menghubungi Contact Center BRI di 14017/1500017 atau mengunjungi unit kerja BRI terdekat"
+            ]
+        },
+        {
+            "tag": "Pembayaran",
+            "patterns": [
+                "Bagaimana cara memperbarui informasi penagihan saya?",
+                "Metode pembayaran apa yang Anda terima?"
+            ],
+            "responses": [
+                "Untuk memperbarui informasi penagihan Anda, silakan masuk ke akun Anda dan buka bagian penagihan. Jika Anda membutuhkan bantuan lebih lanjut, tolong beri tahu saya.",
+                "Maaf, saat ini kami tidak mendukung pembagian pembayaran antara metode yang berbeda. Namun, Anda dapat memilih metode pembayaran yang Anda pilih saat checkout."
+            ]
+        },
+        {
+            "tag":"keuntungan BRI",
+            "patterns": [
+                "apa keuntungan memiliki kartu kredit BRI?"
+            ],
+            "responses": [
+                "keuntungan memiliki kartu kredit BRI 1.transaksi real time,2.aksesibilitas dalam maupun luar negri,3.bunga kompetitif,4.garnasi asuransi,5.didukung aplikasi android  e-banking"
+            ]
+
+        },
+        {
+            "tag":"jenis pinjaman",
+            "patterns": [
+                "apa saja jenis pinjaman yang di sediakan",
+                "jenis pinjaman yang disediakan",
+                "jenis pinjaman"
+            ],
+            "responses":[
+                " Jenis pinjaman yang kami sediakan  \n 1. (KUR,Kupedes),\n 2.Retail menengah(Kredit modal kerja,Kredit investasi), \n 3. Pinjaman Program(Kredit pangan,Resi gudang,Kredit kemitraan)untuk info lebih lanjut ketik nama program saja "
+            ]
+        },
+        {
+            "tag":"KUR micro BRI",
+            "patterns": [
+                "apa itu KUR micro BRI?"
+            ],
+            "responses":[
+               "Kredit Modal Kerja dan atau Investasi dengan plafond sampai dengan Rp50 juta per debitur"
+            ]
+        },
+        {
+            "tag":"KUR Kecil BRI",
+            "patterns": [
+                "apa itu KUR Kecil BRI?"
+            ],
+            "responses":"KUR Kecil BANK BRI adalah Kredit Modal Kerja dan atau Investasi kepada debitur yang memiliki usaha produktif dan layak dengan plafond 50 juta sampai dengan Rp500"
+            },
+        {
+            "tag":"KUR TKI BRI",
+            "patterns": [
+                "apa itu KUR TKI BRI?"
+            ],
+            "responses":"KUR TKI BANK BRI diberikan untuk membiayai keberangkatan calon TKI ke negara penempatan dengan plafond s.d Rp 25 juta"
+        },
+        {
+            "tag":"Kupedes BRI",
+            "patterns": [
+                "apa itu Kupedes BRI?"
+            ],
+            "responses":[
+                "Kredit dengan bunga bersaing yang bersifat umum untuk semua sektor ekonomi, ditunjukan untuk individual (badan usah maupun perorangan) yang memenuhi persyaratan dan dilayani di seluruh BRI Unit dan Teras BRI"
+            ]
+        },
+        {
+            "tag":"persyaratatan Kupedes BRI",
+            "patterns": [
+                "apa saja persyaratan Kupedes BRI?"
+            ],
+            "responses":[
+                "1.Dokumen (Melampirkan legalitas usaha (Minimal surat keterangan usaha dari Kepala Desa / Lurah / Pasar).)\n2.Identitas Diri(Melampirkan dokumen identitas diri KTP / SIM)\n3.Pengalaman Usaha(Pengalaman usaha minimal 1 tahun.)"
+                
+            ]
+        },
+        {
+            "tag":"keuntungan Kupedes BRI",
+            "patterns": [
+                "apa keuntungan memiliki Kupedes BRI?"
+            ],
+            "responses":[
+                "1.Mendukung Pemenuhan Kebutuhan Mendukung pemenuhan kebutuhan lainnya seperti pembiayaan pendidikan,perbaikan rumah,pembelian kendaraan, dsb.\n2.Sektor Usaha Berlaku untuk semua sektor usaha, meliputi pertanian, perdagangan, perindustrian, maupun jasa lainnya.\n3.+ Memperoleh asuransi jiwa kredit, jiwa, kesehatan, kecelakaan, dan meninggal dunia. + Setoran dapat dilakukan di semua BRI Unit maupu melakukan EDC collection\n dan masih banyak lagi"
+            ]
+        }
+
+
+
+        
+    ]
+}
