@@ -1,24 +1,38 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-import nltk
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
-import json
-from django.http import JsonResponse
-from django.views.decorators.http import require_POST
+# from rest_framework.decorators import api_view
+# from rest_framework.response import Response
+# import nltk
+# from django.http import HttpResponse, JsonResponse
+# # from django.views.decorators.csrf import csrf_exempt
+# from django.http import HttpResponse
+# import json
+# from django.http import JsonResponse
+# from django.views.decorators.http import require_POST
 from .model_logic import preparation, load_response, generate_response
-import requests
+
 
 # initialize the lemmatizer and stopwords
 # lemmatizer = WordNetLemmatizer()
 # stop_words = set(stopwords.words('english'))
+from django.http import request
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+import json
+from django.http import HttpResponse, JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+from .model_logic import generate_response
 preparation()
 load_response()
+# @csrf_exempt
+def chatbot(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        text = data.get('message')
+        response = generate_response(text)
+        message = {"answer": response}
+        return JsonResponse(message)
+    else:
+        return HttpResponse("Invalid request method")
 
-@csrf_exempt
 # @api_view(['POST'])
 # def chatbot(request):
 #     # get the user's message from the POST request
@@ -46,15 +60,14 @@ load_response()
 #         response = generate_response(text)  # Your generate_response function implementation
 #         message = {"answer": response}
 #         return HttpResponse(json.dumps(message), content_type="application/json")
-@csrf_exempt
-def chatbot(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        text = data.get('message')
-        response = generate_response(text)
-        message = {"answer": response}
-        # return HttpResponse(json.dumps(message), content_type="application/json")
-        return JsonResponse(message)
+# def chatbot(request):
+#     if request.method == 'POST':
+#         data = json.loads(request.body)
+#         text = data.get('message')
+#         response = generate_response(text)
+#         message = {"answer": response}
+#         return HttpResponse(json.dumps(str(message)), content_type="application/json")
+        # return JsonResponse(message)
 
 # @require_POST
 # def chatbot(request):

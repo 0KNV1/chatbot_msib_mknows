@@ -1,5 +1,5 @@
 import json
-import joblib
+from joblib import load
 import random
 import nltk
 import string
@@ -10,7 +10,7 @@ import tensorflow as tf
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn import preprocessing
-global responses, lemmatizer, tokenizer, le, model, input_shape
+# global responses, lemmatizer, tokenizer, le, model, input_shape
 
 intents = json.loads(open('static/data/response.json').read())
 input_shape = 7#lihat di x train di collab training data
@@ -39,54 +39,46 @@ def load_response():
             # add to our classes list
             if intent['tag'] not in classes:
                 classes.append(intent['tag'])
-  
+load_response()  
 # import model dan download nltk file
 def preparation():
-    load_response()
-    global lemmatizer, tokenizer, le, model
+
+    # global lemmatizer, tokenizer, le, model
     
     nltk.download('punkt', quiet=True)
     nltk.download('wordnet', quiet=True)
     nltk.download('omw-1.4', quiet=True)
-    
-    le = preprocessing.LabelEncoder()
-    le = joblib.load("static/model/label_encoder.joblib")
-    tokenizer = joblib.load("static/model/tokenizer.joblib")
-    lemmatizer = joblib.load("static/model/words.joblib")
-    model = keras.models.load_model('static/model/chatbot_model.h5')  
-    
-
+    # print("Responses dari variable awal nih bre:", responses)
+  
+preparation()
+# le = preprocessing.LabelEncoder()
+le = load('./savedModel/label_encoder.joblib')
+tokenizer = load("./savedModel/tokenizer.joblib")
+lemmatizer = load("./savedModel/words.joblib")
+model = keras.models.load_model('./savedModel/chatbot_model.h5')  
 # def lemmatization(text):
 #     word_list = nltk.word_tokenize(text)
 #     print(word_list)
 #     lemmatized_output = ' '.join([lemmatizer.lemmatize(w) for w in word_list])
 #     print(lemmatized_output)
 #     return lemmatized_output
-def remove_punctuation(text):
+
+def generate_response(prediction_input):
     texts_p = []
-    text = [letters.lower() for letters in text if letters not in string.punctuation]
-    text = ''.join(text)
-    texts_p.append(text)
-    return texts_p
+# Menghapus punktuasi dan konversi ke huruf kecil
+    prediction_input = [letters.lower() for letters in prediction_input if letters not in string.punctuation]
+    prediction_input = ''.join(prediction_input)
+    texts_p.append(prediction_input)
 
-# mengubah text menjadi vector
-def vectorization(texts_p):
-    vector = tokenizer.texts_to_sequences(texts_p)
-    vector = np.array(vector).reshape(-1)
-    vector = pad_sequences([vector], input_shape)
-    return vector
+    # Tokenisasi dan Padding
+    prediction_input = tokenizer.texts_to_sequences(texts_p)
+    prediction_input = np.array(prediction_input).reshape(-1)
+    prediction_input = pad_sequences([prediction_input],input_shape)
 
-# klasifikasi pertanyaan user
-def predict(vector):
-    output = model.predict(vector).astype(int).ravel()
+    # Mendapatkan hasil keluaran pada model 
+    output = model.predict(prediction_input)
     output = output.argmax()
-    response_tag = le.inverse_transform([output])[0]
-    return response_tag
 
-# menghasilkan jawaban berdasarkan pertanyaan user
-def generate_response(text):
-    texts_p = remove_punctuation(text)
-    vector = vectorization(texts_p)
-    response_tag = predict(vector)
-    answer = random.choice(responses[response_tag])
-    return answer
+    # Menemukan respon sesuai data tag dan memainkan voice bot
+    response_tag = le.inverse_transform([output])[0]
+    return random.choice(responses[response_tag])
